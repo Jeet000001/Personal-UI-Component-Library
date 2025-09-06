@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "motion/react";
 import { FaRegCopy } from "react-icons/fa6";
 import { TiTick } from "react-icons/ti";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -10,11 +11,14 @@ const DestructiveButton = () => {
 
   const MyComponent = () => (
     <div className="w-180 h-70 flex justify-center items-center">
-       <button 
-       className="bg-red-600 text-white px-4 py-2 rounded-md"
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        transition={{ type: "spring", stiffness: 300, damping: 15 }}
+        className="bg-red-600 text-white px-4 py-2 rounded-md shadow-md shadow-red-400"
       >
         Destructive
-      </button>
+      </motion.button>
     </div>
   );
 
@@ -24,9 +28,14 @@ import React from "react";
 const App = () => {
   return (
     <div>
-      <button className="bg-red-600 text-white px-4 py-2 rounded-md">
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        transition={{ type: "spring", stiffness: 300, damping: 15 }}
+        className="bg-red-600 text-white px-4 py-2 rounded-md shadow-md shadow-red-400"
+      >
         Destructive
-      </button>
+      </motion.button>
     </div>
   );
 };
@@ -64,22 +73,24 @@ export default App;
         {show === "component" ? (
           <MyComponent />
         ) : (
-          <div className="rounded-xl relative">
-            <pre className="px-5 text-xs">
-              <SyntaxHighlighter
-                language="jsx"
-                style={prism}
-                customStyle={{ background: "transparent" }}
+          <div className="overflow-y-auto pl-6 max-h-78 w-full">
+            <div className="rounded-xl relative">
+              <pre className="px-5 text-xs">
+                <SyntaxHighlighter
+                  language="jsx"
+                  style={prism}
+                  customStyle={{ background: "transparent" }}
+                >
+                  {componentCode}
+                </SyntaxHighlighter>
+              </pre>
+              <button
+                onClick={handleCopy}
+                className="absolute top-2 right-2 px-3 py-2 hover:bg-gray-200 rounded-md"
               >
-                {componentCode}
-              </SyntaxHighlighter>
-            </pre>
-            <button
-              onClick={handleCopy}
-              className="absolute top-2 right-2 px-3 py-2 hover:bg-gray-200 rounded-md"
-            >
-              {copied ? <TiTick /> : <FaRegCopy />}
-            </button>
+                {copied ? <TiTick /> : <FaRegCopy />}
+              </button>
+            </div>
           </div>
         )}
       </div>

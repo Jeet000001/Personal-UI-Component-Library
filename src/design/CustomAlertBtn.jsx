@@ -1,32 +1,38 @@
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import { FaRegCopy } from "react-icons/fa6";
 import { TiTick } from "react-icons/ti";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { prism } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 const CustomAlart = () => {
-  const [show, setShow] = useState("component"); // preview ya code
+  const [show, setShow] = useState("component");
   const [copied, setCopied] = useState(false);
 
-  // 👇 ye hamara alert demo component hai
   const MyComponent = () => {
     const [showAlert, setShowAlert] = useState(false);
 
     return (
       <div className="p-6 max-w-md mx-auto space-y-4">
-        {/* Alert button */}
         <div className="flex justify-center">
           <button
             onClick={() => setShowAlert(true)}
-            className="px-4 py-2 mt-10 bg-gray-100 hover:bg-gray-200 rounded"
+            className="px-4 py-2 mt-10 bg-gray-100 hover:bg-gray-200 rounded shadow-md shadow-gray-400"
           >
             Alert
           </button>
         </div>
 
         {/* Alert box */}
+ <AnimatePresence>
         {showAlert && (
-          <div className="flex justify-between items-center p-3 rounded bg-gray-200">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}  // jab aayega
+            animate={{ opacity: 1, y: 0 }}     // visible hone par
+            exit={{ opacity: 0, y: -20 }}      // jab band hoga
+            transition={{ duration: 0.4 }}
+            className="flex justify-between items-center p-3 rounded bg-gray-200 shadow-md shadow-gray-400"
+          >
             <span>⚠ Custom Alert Triggered!</span>
             <button
               onClick={() => setShowAlert(false)}
@@ -34,8 +40,9 @@ const CustomAlart = () => {
             >
               ×
             </button>
-          </div>
+          </motion.div>
         )}
+      </AnimatePresence>
       </div>
     );
   };
@@ -43,6 +50,7 @@ const CustomAlart = () => {
   // 👇 ye wahi code snippet h jo copy hone wala hai
   const componentCode = `
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 function App() {
   const [showAlert, setShowAlert] = useState(false);
@@ -58,25 +66,33 @@ function App() {
         </button>
       </div>
 
-      {showAlert && (
-        <div className="flex justify-between items-center p-3 rounded bg-gray-200">
-          <span>⚠ Custom Alert Triggered!</span>
-          <button
-            onClick={() => setShowAlert(false)}
-            className="ml-4 font-bold text-lg"
+      <AnimatePresence>
+        {showAlert && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4 }}
+            className="flex justify-between items-center p-3 rounded bg-gray-200 shadow-md"
           >
-            ×
-          </button>
-        </div>
-      )}
+            <span>⚠ Custom Alert Triggered!</span>
+            <button
+              onClick={() => setShowAlert(false)}
+              className="ml-4 font-bold text-lg"
+            >
+              ×
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
 
 export default App;
+
   `;
 
-  // 👇 copy button ka logic
   const handleCopy = () => {
     navigator.clipboard.writeText(componentCode);
     setCopied(true);
@@ -85,7 +101,7 @@ export default App;
 
   return (
     <div className="min-h-screen flex flex-col p-6">
-      {/* Top buttons */}
+
       <div className="flex gap-4">
         <button
           onClick={() => setShow("component")}
@@ -102,7 +118,6 @@ export default App;
         </button>
       </div>
 
-      {/* Preview ya Code */}
       <div className="w-full mt-4">
         {show === "component" ? (
           <MyComponent />

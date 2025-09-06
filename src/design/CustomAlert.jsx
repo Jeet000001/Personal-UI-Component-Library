@@ -1,5 +1,6 @@
 import { div } from "motion/react-client";
 import React, { useState } from "react";
+import { motion } from "motion/react";
 import { FaRegCopy } from "react-icons/fa6";
 import { TiTick } from "react-icons/ti";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -12,8 +13,8 @@ function Alert({ type, message }) {
 
   // styles map
   const styles = {
-    success: "bg-white text-black border border-black",
-    error: "bg-black text-white border border-white",
+    success: "bg-white text-black border border-black shadow-md shadow-gray-400",
+    error: "bg-black text-white shadow-md shadow-gray-400",
   };
 
   return (
@@ -37,8 +38,20 @@ const CustomAlert = () => {
   const MyComponent = () => (
     <div className="w-180 h-70 flex justify-center items-center">
       <div className="w-80 flex flex-col gap-3">
-        <Alert type="success" message="✔ Success: Every thing is perfect!" />
-        <Alert type="error" message="✖ Error: Something is wrong!" />
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 0.8, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeInOut", delay: 0.4 }}
+        >
+          <Alert type="success" message="✔ Success: Every thing is perfect!" />
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 0.8, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeInOut", delay: 0.3 }}
+        >
+          <Alert type="error" message="✖ Error: Something is wrong!" />
+        </motion.div>
       </div>
     </div>
   );
@@ -52,8 +65,8 @@ function Alert({ type, message }) {
   if (!show) return null;
 
   const styles = {
-    success: "bg-white text-black border border-black",
-    error: "bg-black text-white border border-white",
+    success: "bg-white text-black border border-black shadow-md shadow-gray-400",
+    error: "bg-black text-white border border-white shadow-md shadow-gray-400",
   };
 
   return (
@@ -69,8 +82,20 @@ function Alert({ type, message }) {
 function App() {
   return (
     <div className="p-6 space-y-4 max-w-md mx-auto">
-      <Alert type="success" message="✔ Success: Every thing is perfect!" />
-      <Alert type="error" message="✖ Error: Something is wrong!" />
+     <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 0.8, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeInOut", delay: 0.4 }}
+        >
+          <Alert type="success" message="✔ Success: Every thing is perfect!" />
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 0.8, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeInOut", delay: 0.3 }}
+        >
+          <Alert type="error" message="✖ Error: Something is wrong!" />
+        </motion.div>
     </div>
   );
 }

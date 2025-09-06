@@ -1,4 +1,5 @@
 import { color } from "motion";
+import { motion } from "motion/react";
 import React, { useState } from "react";
 import { FaRegCopy } from "react-icons/fa6";
 import { TiTick } from "react-icons/ti";
@@ -11,9 +12,15 @@ const P = () => {
 
   const MyComponent = () => (
     <div className="w-180 h-70 flex justify-center items-center">
-      <button className="bg-gray-900 text-white px-4 py-2 rounded-md hover:bg-gray-800">
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        transition={{ type: "spring", stiffness: 300, damping: 15 }}
+        className="bg-gray-900 text-white px-4 py-2 rounded-md
+         hover:bg-gray-800 shadow-md shadow-gray-500"
+      >
         Button
-      </button>
+      </motion.button>
     </div>
   );
 
@@ -23,9 +30,15 @@ import React from "react";
 const App = () => {
   return (
     <div>
-      <button className="bg-gray-900 text-white px-4 py-2 rounded-md hover:bg-gray-800">
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        transition={{ type: "spring", stiffness: 300, damping: 15 }}
+        className="bg-gray-900 text-white px-4 py-2 rounded-md
+         hover:bg-gray-800 shadow-md shadow-gray-500"
+      >
         Button
-      </button>
+      </motion.button>
     </div>
   );
 };
@@ -64,22 +77,24 @@ export default App;
         {show === "component" ? (
           <MyComponent />
         ) : (
-          <div className="rounded-xl relative">
-            <pre className="px-5 text-xs">
-              <SyntaxHighlighter
-                language="jsx"
-                style={prism}
-                customStyle={{ background: "transparent" }}
+          <div className="overflow-y-auto pl-6 max-h-78 w-full">
+            <div className="rounded-xl relative">
+              <pre className="px-5 text-xs">
+                <SyntaxHighlighter
+                  language="jsx"
+                  style={prism}
+                  customStyle={{ background: "transparent" }}
+                >
+                  {componentCode}
+                </SyntaxHighlighter>
+              </pre>
+              <button
+                onClick={handleCopy}
+                className="absolute top-2 right-2 px-3 py-2 hover:bg-gray-200 rounded-md"
               >
-                {componentCode}
-              </SyntaxHighlighter>
-            </pre>
-            <button
-              onClick={handleCopy}
-              className="absolute top-2 right-2 px-3 py-2 hover:bg-gray-200 rounded-md"
-            >
-              {copied ? <TiTick /> : <FaRegCopy />}
-            </button>
+                {copied ? <TiTick /> : <FaRegCopy />}
+              </button>
+            </div>
           </div>
         )}
       </div>
