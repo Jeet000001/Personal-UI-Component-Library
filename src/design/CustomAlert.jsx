@@ -6,12 +6,12 @@ import { TiTick } from "react-icons/ti";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { prism } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-// ✅ Alert Component
+
 function Alert({ type, message }) {
   const [show, setShow] = useState(true);
   if (!show) return null;
 
-  // styles map
+
   const styles = {
     success: "bg-white text-black border border-black shadow-md shadow-gray-400",
     error: "bg-black text-white shadow-md shadow-gray-400",
@@ -29,19 +29,19 @@ function Alert({ type, message }) {
   );
 }
 
-// ✅ Main CustomAlert Component
+
 const CustomAlert = () => {
   const [show, setShow] = useState("component");
   const [copied, setCopied] = useState(false);
 
-  // MyComponent ab Alert show karega
+
   const MyComponent = () => (
     <div className="w-180 h-70 flex justify-center items-center">
       <div className="w-80 flex flex-col gap-3">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 0.8, y: 0 }}
-          transition={{ duration: 0.5, ease: "easeInOut", delay: 0.4 }}
+          transition={{ duration: 0.8, ease: "easeInOut", delay: 0.4 }}
         >
           <Alert type="success" message="✔ Success: Every thing is perfect!" />
         </motion.div>

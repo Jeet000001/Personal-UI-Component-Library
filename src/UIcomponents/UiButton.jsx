@@ -6,6 +6,8 @@ import GhostButton from "../design/GhostButton";
 import LinkButton from "../design/LinkButton"
 import GradientBtn from "../design/GradientBtn"
 import GlowingBtn from "../design/GlowingBtn"
+import RipperButton from "../design/RipperButton"
+
 
 
 const Button = () => {
@@ -73,6 +75,15 @@ const Button = () => {
         </h1>
         <div className="ml-50 border-1 border-gray-300 w-200 h-100 rounded-2xl">
           <GlowingBtn />
+        </div>
+      </div>
+
+      <div className="mt-15"> 
+        <h1 className="ml-52 text-xl font-medium text-gray-500 my-4">
+          Glowing Button Text
+        </h1>
+        <div className="ml-50 border-1 border-gray-300 w-200 h-100 rounded-2xl">
+          <RipperButton />
         </div>
       </div>
 

@@ -47,7 +47,7 @@ const CustomAlart = () => {
     );
   };
 
-  // 👇 ye wahi code snippet h jo copy hone wala hai
+
   const componentCode = `
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";

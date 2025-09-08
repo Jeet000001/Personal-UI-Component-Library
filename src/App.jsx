@@ -5,9 +5,12 @@ import Docs from "./pages/Docs";
 import RootLayout from "./Layouts/RootLayout";
 import ComponentsLayout from "./Layouts/ComponentsLayout";
 import UiNavbar from "./UIcomponents/UiAlert";
+import UiAuthentication from "./UIcomponents/UiAuthentication";
 import UiButton from "./UIcomponents/UiButton";
 import UiAvatar from "./UIcomponents/UiAvatar";
 import UiCard from "./UIcomponents/UiCard";
+import UiCarousel from "./UIcomponents/UiCarousel";
+
 
 import {
   createBrowserRouter,
@@ -25,9 +28,11 @@ const App = () => {
         <Route path="docs" element={<Docs />} />
         <Route path="component" element={<ComponentsLayout />}>
           <Route path="uialert" element={<UiNavbar />} />
+          <Route path="uiAuthentication" element={<UiAuthentication />} />
           <Route path="uiAvatar" element={<UiAvatar />} />
           <Route path="Uibutton" element={<UiButton />} />
           <Route path="uicard" element={<UiCard />} />
+          <Route path="uicarousel" element={<UiCarousel />} />
         </Route>
         <Route path="contact" element={<Contact />} />
       </Route>

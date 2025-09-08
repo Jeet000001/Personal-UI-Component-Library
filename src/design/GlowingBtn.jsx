@@ -42,7 +42,7 @@ const P = () => {
           className="bg-gray-900 px-6 py-3 rounded-md
          hover:bg-gray-800 relative overflow-hidden glow-hover shadow-md shadow-gray-500"
         >
-          <span className="relative inline-block glow-text">Button</span>
+          <span className="relative inline-block glow-text">Hover Me</span>
         </motion.button>
       </div>
     </div>
@@ -81,7 +81,7 @@ function App() {
           className="bg-gray-900 px-6 py-3 rounded-md
          hover:bg-gray-800 relative overflow-hidden glow-hover shadow-md shadow-gray-500"
         >
-          <span className="relative inline-block glow-text">Button</span>
+          <span className="relative inline-block glow-text">Hover Me</span>
         </motion.button>
       </div>
     </>

@@ -34,6 +34,16 @@ const ComponentPage = () => {
         </li>
         </NavLink>
 
+         <NavLink to ="./uiAuthentication">
+        <li
+          className={`my-2 px-5 py-2 rounded-full cursor-pointer bg-gray-300 hover:bg-blue-300 ${
+            matches("Alert") ? "" : "hidden"
+          }`}
+        >
+          Authentication
+        </li>
+        </NavLink>
+
         <NavLink to ="./uiAvatar">
         <li
           className={`my-2 px-5 py-2 rounded-full cursor-pointer bg-gray-300 hover:bg-blue-300 ${
@@ -61,6 +71,16 @@ const ComponentPage = () => {
           }`}
         >
           Card
+        </li>
+        </NavLink>
+
+        <NavLink to="./uicarousel">
+        <li
+          className={`mb-2 px-5 py-2 rounded-full cursor-pointer bg-gray-300 hover:bg-blue-300 ${
+            matches("Card") ? "" : "hidden"
+          }`}
+        >
+          Carousel
         </li>
         </NavLink>
 

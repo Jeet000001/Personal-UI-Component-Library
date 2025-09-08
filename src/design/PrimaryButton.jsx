@@ -72,7 +72,7 @@ export default App;
         </button>
       </div>
 
-      {/* Preview OR Code */}
+
       <div className="w-full ">
         {show === "component" ? (
           <MyComponent />
