@@ -65,7 +65,6 @@ const MultiCardCarousel2 = () => {
             })}
           </div>
 
-          {/* Right Button */}
           <button
             onClick={nextSlide}
             disabled={current === cards.length - 1}

@@ -8,6 +8,7 @@ import UiNavbar from "./UIcomponents/UiAlert";
 import UiAuthentication from "./UIcomponents/UiAuthentication";
 import UiButton from "./UIcomponents/UiButton";
 import UiAvatar from "./UIcomponents/UiAvatar";
+import UiCalendar from "./UIcomponents/UiCalendar";
 import UiCard from "./UIcomponents/UiCard";
 import UiCarousel from "./UIcomponents/UiCarousel";
 
@@ -33,6 +34,9 @@ const App = () => {
           <Route path="Uibutton" element={<UiButton />} />
           <Route path="uicard" element={<UiCard />} />
           <Route path="uicarousel" element={<UiCarousel />} />
+          <Route path="uicalendar" element={<UiCalendar />} />
+          
+
         </Route>
         <Route path="contact" element={<Contact />} />
       </Route>

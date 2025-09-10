@@ -64,6 +64,16 @@ const ComponentPage = () => {
         </li>
         </NavLink>
 
+        <NavLink to="./uicalendar">
+        <li
+          className={`mb-2 px-5 py-2 rounded-full cursor-pointer bg-gray-300 hover:bg-blue-300 ${
+            matches("Card") ? "" : "hidden"
+          }`}
+        >
+          Calendar
+        </li>
+        </NavLink>
+
         <NavLink to="./uicard">
         <li
           className={`mb-2 px-5 py-2 rounded-full cursor-pointer bg-gray-300 hover:bg-blue-300 ${
